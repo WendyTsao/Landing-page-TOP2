@@ -1,38 +1,5 @@
 <template>
-  <div class="banner">
-    <div class="container">
-      <div class="menubar">
-        <div class="logo">
-          <img src="../assets/pic/Logo.png" alt="Top Logo" />
-        </div>
-        <div class="languages">
-          <a class="languageItem">簡</a>
-          <a class="languageItem">繁</a>
-          <a class="languageItem">EN</a>
-          <a class="menubar-open">
-            <i class="fas fa-bars"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="side-menu">
-      <a class="menubar-close">
-        <i class="fas fa-times fa-3x"></i>
-      </a>
-      <ul class="nav-bar">
-        <li><a href="#">關於我們</a></li>
-        <li><a href="#">企業介紹</a></li>
-        <li><a href="#">線下分店</a></li>
-        <li><a href="#">APP程式</a></li>
-        <li><a href="#">聯絡我們</a></li>
-        <li>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-weixin"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <Menubar></Menubar>
 
   <div class="brand">
     <div class="container col-10 col-lg-8">
@@ -238,12 +205,11 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Menubar from '../components/Menubar.vue';
 
 export default {
-  name: "Home",
   components: {
-    HelloWorld,
+    Menubar,
   },
 };
 </script>

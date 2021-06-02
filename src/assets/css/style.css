@@ -19,31 +19,23 @@ ul,li{
     left: 0;
     margin: auto;
     display: flex;
-    justify-content: space-between;
-    padding: 48px 50px 0;
+    justify-content: flex-end;
+    padding: 20px;
     z-index: 2;
+    background-color: #fff;
+}
+    
+.logo{
+    display: none;
 }
 
-.languages{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.languages a{
-    text-decoration: none;
-    font-size: 1rem;
-    color: #fff;
-    margin-right: 20px;
-}
-
-.languages a:last-child{
-    margin-right: 0;
+.languageItem{
+    display: none;
 }
 
 .menubar-open i{
     font-size: 2.5rem;
-    color: #fff;
+    color: #000;
 }
 
 .menubar-close i{
@@ -67,7 +59,7 @@ ul,li{
     flex-direction: column;
     padding: 100px 0;
     box-sizing: border-box;
-    transform: translateX(100%);
+    transform: translateX(0);
     transition: .3s;
 }
 
@@ -277,6 +269,42 @@ ul,li{
                     url("../pic/Line-Graphic.png")no-repeat center / 97%,
                     url("../pic/banner.jpg") no-repeat center / cover;
     }  
+    .menubar{
+        justify-content: space-between;
+        background-color: transparent;
+        padding: 48px 50px 0;
+    }
+
+    .logo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }    
+
+    .languages{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .menubar-open i{
+        color: #fff;
+    }    
+
+    .languageItem{
+        display: block;
+    }
+    
+    .languages a{
+        text-decoration: none;
+        font-size: 1rem;
+        color: #fff;
+        margin-right: 20px;
+    }
+    
+    .languages a:last-child{
+        margin-right: 0;
+    }
     
     .side-menu {
         width: 50%;
