@@ -82,25 +82,14 @@
   <div class="app-screen">
     <div class="container col-10 col-lg-8">
       <div class="row">
-        <div class="col-12 col-lg-6">
-          <div class="txt">
+        <Graphic :image="'Iphone.png'">
+          <Title :content="app1Contents">
             <span class="tag">即將推出</span>
-            <h2>APP程式</h2>
-            <p>
-              自家研发B2B奢侈品电商平台让服装人没有难做的服装生意。即将会上线，请敬请期待!
-            </p>
-          </div>
-          <img src="../assets/pic/Iphone.png" alt="" />
-        </div>
-        <div class="col-12 col-lg-6">
-          <div class="txt">
-            <h2>微信小程序 </h2>
-            <p>
-              透过微信庞大的社交体系，小程序得到快速传播最优越最新的时装产品最到我们的专贵客户，客源更多元化。
-            </p>
-          </div>
-          <img src="../assets/pic/Iphone2.png" alt="" />
-        </div>
+          </Title>
+        </Graphic>
+        <Graphic :image="'Iphone2.png'">
+          <Title :content="app2Contents"></Title>
+        </Graphic>
       </div>
     </div>
   </div>
@@ -128,10 +117,11 @@
 import Menubar from '../components/Menubar.vue';
 import Card from '../components/Card.vue';
 import Title from '../components/Title.vue';
+import Graphic from '../components/Graphic.vue';
 
 export default {
   components: {
-    Menubar, Card, Title,
+    Menubar, Card, Title, Graphic,
   },
 
   setup(){
@@ -145,6 +135,16 @@ export default {
       text: "TOP2拥有超过30年经营欧洲时装品牌批发的经验，成为欧洲奢侈品牌的领先市场。  客户遍布亚洲各地，包括香港、澳门、中国、台湾及日本等。" 
     };
 
+    const app1Contents =
+    { title: "APP程式", 
+      text: "自家研发B2B奢侈品电商平台让服装人没有难做的服装生意。即将会上线，请敬请期待!" 
+    };
+
+    const app2Contents =
+    { title: "微信小程序 ", 
+      text: "透过微信庞大的社交体系，小程序得到快速传播最优越最新的时装产品最到我们的专贵客户，客源更多元化。" 
+    };
+
     const contactContents =
     { title: "联络我们" };
 
@@ -154,7 +154,7 @@ export default {
       { text:"合作电邮", email:"enquiry@top-2.hk" }
     ]
 
-    return { brandContents, aboutContents, contactContents, contactItems }
+    return { brandContents, aboutContents, app1Contents, app2Contents, contactContents, contactItems }
   },
 };
 </script>
