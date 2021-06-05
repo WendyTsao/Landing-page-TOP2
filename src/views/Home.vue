@@ -4,14 +4,7 @@
   <div class="brand">
     <div class="container col-10 col-lg-8">
       <div class="row">
-        <div class="txt">
-          <h2>核心品牌矩阵</h2>
-          <p>
-            TOP2擁有一隊經驗豐富的頂尖駐歐洲買手團隊直接入口一線奢侈服裝品牌如
-            GUCCI、DIOR、BURBERRY
-            等，所有產品均百份百從各個歐洲品牌直接進口香港。我們秉承品牌核心價值，每天為追求時裝潮流的客人提供最新最緊貼歐洲潮流的產品。
-          </p>
-        </div>
+        <Title :content="brandContents"></Title>
       </div>
       <Card></Card>
     </div>
@@ -20,12 +13,7 @@
   <div class="about">
     <div class="container col-10 col-lg-8">
       <div class="row">
-        <div class="txt">
-          <h2>关于我们</h2>
-          <p>
-            TOP2拥有超过30年经营欧洲时装品牌批发的经验，成为欧洲奢侈品牌的领先市场。  客户遍布亚洲各地，包括香港、澳门、中国、台湾及日本等。
-          </p>
-        </div>
+        <Title :content="aboutContents"></Title>
       </div>
     </div>
   </div>
@@ -149,10 +137,26 @@
 // @ is an alias to /src
 import Menubar from '../components/Menubar.vue';
 import Card from '../components/Card.vue';
+import Title from '../components/Title.vue';
 
 export default {
   components: {
-    Menubar, Card
+    Menubar, Card, Title,
+  },
+
+  setup(){
+    const brandContents = 
+    { title: "关于我们", 
+      text: "TOP2擁有一隊經驗豐富的頂尖駐歐洲買手團隊直接入口一線奢侈服裝品牌如 GUCCI、DIOR、BURBERRY 等，所有產品均百份百從各個歐洲品牌直接進口香港。我們秉承品牌核心價值，每天為追求時裝潮流的客人提供最新最緊貼歐洲潮流的產品。" 
+    };
+
+    const aboutContents =
+    { title: "核心品牌矩阵", 
+      text: "TOP2拥有超过30年经营欧洲时装品牌批发的经验，成为欧洲奢侈品牌的领先市场。  客户遍布亚洲各地，包括香港、澳门、中国、台湾及日本等。" 
+    };
+
+
+    return { brandContents, aboutContents, }
   },
 };
 </script>
