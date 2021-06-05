@@ -143,25 +143,6 @@
     </div>
   </div>
 
-  <div class="footer">
-    <div class="container-fluid">
-      <div class="footer-link">
-        <div class="copyright txt">© 2021 TOP2有限公司版權所有</div>
-        <div class="menu txt">
-          <a href="#">關於我們</a>
-          <a href="#">企業介紹</a>
-          <a href="#">線下分店</a>
-          <a href="#">APP程式</a>
-          <a href="#">聯絡我們</a>
-        </div>
-        <div class="contact-icon txt">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-weixin"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -171,7 +152,7 @@ import Card from '../components/Card.vue';
 
 export default {
   components: {
-    Menubar, Card,
+    Menubar, Card
   },
 };
 </script>
