@@ -108,23 +108,13 @@
   <div class="contact">
     <div class="container col-10">
       <div class="row">
-        <div class="txt">
-          <h2>联络我们</h2>
-        </div>
+        <Title :content="contactContents"></Title>
       </div>
       <div class="row">
         <div class="contact-item">
-          <div class="txt">
-            <p>联络电邮</p>
-            <p>enquiry@top-2.hk</p>
-          </div>
-          <div class="txt">
-            <p>加入我们电邮</p>
-            <p>hr@top-2.hk</p>
-          </div>
-          <div class="txt">
-            <p>合作电邮</p>
-            <p>enquiry@top-2.hk</p>
+          <div v-for="item in contactItems" class="txt" :key="item.email">
+            <p>{{item.text}}</p>
+            <p>{{item.email}}</p>
           </div>
         </div>
       </div>
@@ -155,8 +145,16 @@ export default {
       text: "TOP2拥有超过30年经营欧洲时装品牌批发的经验，成为欧洲奢侈品牌的领先市场。  客户遍布亚洲各地，包括香港、澳门、中国、台湾及日本等。" 
     };
 
+    const contactContents =
+    { title: "联络我们" };
 
-    return { brandContents, aboutContents, }
+    const contactItems = [
+      { text:"联络电邮", email:"enquiry@top-2.hk" },
+      { text:"加入我们电邮", email:"hr@top-2.hk" },
+      { text:"合作电邮", email:"enquiry@top-2.hk" }
+    ]
+
+    return { brandContents, aboutContents, contactContents, contactItems }
   },
 };
 </script>
