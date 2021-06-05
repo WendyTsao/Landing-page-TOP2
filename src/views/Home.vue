@@ -13,46 +13,7 @@
           </p>
         </div>
       </div>
-      <div class="brand-card">
-        <div class="row">
-          <div class="card-content col-12 col-lg-3">
-            <img src="../assets/pic/brand01.jpg" />
-            <div class="brand-name">
-              <h3>古驰</h3>
-            </div>
-          </div>
-          <!-- <div class="card-content col-12 col-lg-3">
-                        <img src="../assets/pic/brand02.jpg">
-                        <div class="brand-name">
-                            <h3>迪奥</h3>
-                        </div>
-                    </div>
-                    <div class="card-content col-12 col-lg-3">
-                        <img src="../assets/pic/brand03.jpg">
-                        <div class="brand-name">
-                            <h3>芬迪</h3>
-                        </div>
-                    </div>
-                    <div class="card-content col-12 col-lg-3">
-                        <img src="../assets/pic/brand04.jpg">
-                        <div class="brand-name">
-                            <h3>巴黎世家</h3>
-                        </div>
-                    </div>
-                    <div class="card-content col-12 col-lg-3">
-                        <img src="../assets/pic/brand05.jpg">
-                        <div class="brand-name">
-                            <h3>博柏利</h3>
-                        </div>
-                    </div>
-                    <div class="card-content col-12 col-lg-3">
-                        <img src="../assets/pic/brand06.jpg">
-                        <div class="brand-name">
-                            <h3>紀梵希</h3>
-                        </div>
-                    </div> -->
-        </div>
-      </div>
+      <Card></Card>
     </div>
   </div>
 
@@ -206,10 +167,11 @@
 <script>
 // @ is an alias to /src
 import Menubar from '../components/Menubar.vue';
+import Card from '../components/Card.vue';
 
 export default {
   components: {
-    Menubar,
+    Menubar, Card,
   },
 };
 </script>
