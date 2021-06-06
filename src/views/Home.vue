@@ -42,18 +42,20 @@
                 <li><button @click="clickTab" :class="['nav-link',{'active': !tabStatus}]">零售</button></li>
             </ul>
             <div class="txt" data-aos="fade-left" data-aos-duration="1000">
-              <div v-if="tabStatus">
-                  <p>
-                      TOP2的顶尖时装买手高瞻远瞩，拥有前瞻性的眼光能准确分析来季时装的潮流趋势，致力为客人提供最优越最新的时装产品。再配合我们卓越的分销渠道，客户遍布亚洲各国，包括香港、澳门、中国、台湾及日本等地。
-                  </p>
-                  <img src="../assets/pic/business01.jpg" />
-              </div>
-              <div v-else>
-                  <p>
-                      亨德爾說過一句富有哲理的話，慎慮無後患。這句話幾乎解讀出了問題的根本。零售改變了我的命運。我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。零售對我來說，已經成為了我生活的一部分。
-                  </p>
-                  <img src="../assets/pic/business02.jpg" />
-              </div>
+              <transition>
+                <div v-if="tabStatus">
+                    <p>
+                        TOP2的顶尖时装买手高瞻远瞩，拥有前瞻性的眼光能准确分析来季时装的潮流趋势，致力为客人提供最优越最新的时装产品。再配合我们卓越的分销渠道，客户遍布亚洲各国，包括香港、澳门、中国、台湾及日本等地。
+                    </p>
+                    <img src="../assets/pic/business01.jpg" />
+                </div>
+                <div v-else>
+                    <p>
+                        亨德爾說過一句富有哲理的話，慎慮無後患。這句話幾乎解讀出了問題的根本。零售改變了我的命運。我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。零售對我來說，已經成為了我生活的一部分。
+                    </p>
+                    <img src="../assets/pic/business02.jpg" />
+                </div>
+              </transition>
             </div>
           </div>
         </div>
@@ -146,3 +148,17 @@ export default {
 };
 </script>
 
+<style scoped>
+
+  .v-enter-active, .v-leave-active {
+    transition: opacity 1s;
+  }
+
+  .v-enter-from, .v-leave-to {
+    opacity: 0;
+  }
+
+  .v-enter-to, .v-leave-from {
+    opacity: 1;
+  }
+</style>
