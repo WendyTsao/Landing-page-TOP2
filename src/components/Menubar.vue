@@ -45,7 +45,7 @@ export default {
         const closeMenu = ()=> menubarStatus.value = !menubarStatus.value;
 
         onMounted(() => {
-            document.addEventListener('scroll', ()=> menubarStatus.value = true );
+            document.addEventListener('scroll', ()=> menubarStatus.value = false );
         });
 
 
