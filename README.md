@@ -1,4 +1,7 @@
-# landing-page
+# RWD website - TOP2
+
+Test time: 2021.06.01-2021.06.06 - Digisalad
+## 💡 [DEMO](https://one-page-web-top2.herokuapp.com/)
 
 ## Project setup
 ```
