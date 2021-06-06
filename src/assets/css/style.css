@@ -188,7 +188,7 @@ ul,li{
     border-color: transparent;
 }
 
-.business-img img{
+.business .tab-pane img{
     width: 100%;
     vertical-align: bottom;
 }
