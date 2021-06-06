@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div :class="['side-menu', {'show-menu':!menubarStatus},{'hidden-menu':menubarStatus}]">
+    <div :class="['side-menu', {'hidden-menu':!menubarStatus}]">
       <a class="menubar-close" @click="closeMenu">
         <i class="fas fa-times fa-3x"></i>
       </a>
@@ -40,7 +40,7 @@ import { onMounted, ref } from 'vue';
 export default {
     setup(){
 
-        const menubarStatus = ref(true);
+        const menubarStatus = ref(false);
         const openMenu = ()=> menubarStatus.value = !menubarStatus.value;
         const closeMenu = ()=> menubarStatus.value = !menubarStatus.value;
 
