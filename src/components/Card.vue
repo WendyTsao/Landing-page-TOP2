@@ -1,6 +1,6 @@
 <template>
   <div class="brand-card">
-    <div class="row">
+    <div class="row" data-aos="fade-left" data-aos-duration="1000" data-aos-mirror="true">
       <Swiper :slidesPerView="2" :spaceBetween="30" :slidesPerGroup="2"
               :grabCursor="true"  :scrollbar="true"  class="mySwiper" 
               :breakpoints="{ '992': { slidesPerView: 4, spaceBetween: 20, slidesPerGroup: 4 }}">

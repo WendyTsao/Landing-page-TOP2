@@ -75,7 +75,7 @@
             <span class="tag">即將推出</span>
           </Title>
         </Graphic>
-        <Graphic :image="'Iphone2.png'">
+        <Graphic :image="'Iphone2.png'" data-aos-delay="500">
           <Title :content="app2Contents"></Title>
         </Graphic>
       </div>
@@ -83,7 +83,7 @@
   </div>
 
   <div class="contact">
-    <div class="container col-10">
+    <div class="container col-10" data-aos="fade-up" data-aos-delay="500" data-aos-mirror="true">
       <div class="row">
         <Title :content="contactContents"></Title>
       </div>
