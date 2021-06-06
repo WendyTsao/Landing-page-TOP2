@@ -97,6 +97,14 @@ ul,li{
     background-color: #161416;
 }
 
+.swiper-scrollbar{
+    background-color: rgba(141, 136, 126, .5);
+}
+
+.swiper-scrollbar-drag {
+    background-color: #8D887E;
+}
+
 .txt{
     color: #F3F3F3;
 }
@@ -115,7 +123,6 @@ ul,li{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 100px;
 }
 
 .card-content img{

@@ -1,18 +1,34 @@
 <template>
   <div class="brand-card">
     <div class="row">
-      <div v-for="brand in brands" class="card-content col-12 col-lg-3" :key="brand.image">
-        <img :src="require(`@/assets/pic/${brand.image}`)" />
-        <div class="brand-name">
-          <h3>{{brand.name}}</h3>
-        </div>
-      </div>
+      <Swiper :slidesPerView="2" :spaceBetween="30" :slidesPerGroup="2"
+              :grabCursor="true"  :scrollbar="true"  class="mySwiper" 
+              :breakpoints="{ '992': { slidesPerView: 4, spaceBetween: 20, slidesPerGroup: 4 }}">
+        <SwiperSlide v-for="brand in brands" class="card-content col-12 col-lg-3" :key="brand.image">
+          <img :src="require(`@/assets/pic/${brand.image}`)" />
+          <div class="brand-name">
+            <h3>{{brand.name}}</h3>
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/swiper.min.css';
+import "swiper/components/scrollbar/scrollbar.min.css"
+
+import SwiperCore, { Scrollbar } from "swiper/core";
+SwiperCore.use([Scrollbar]);
+
+
 export default {
+    components: {
+     Swiper, SwiperSlide,
+  },
+
     setup(){
         const brands = [
             { image: "brand01.jpg", name: "古驰" },
