@@ -1,15 +1,16 @@
 <template>
   <div class="banner">
     <div class="container">
-      <div class="menubar">
+      <div :class="['menubar',{'active': logoStatus}]">
         <div class="logo">
-          <img src="../assets/pic/Logo.png" alt="Top Logo" />
+          <img v-show="!logoStatus" class="white" src="../assets/pic/Logo.png" alt="Top Logo" />
+          <img v-show="logoStatus" class="black" src="../assets/pic/Logo-black.png" alt="Top Logo" />
         </div>
-        <div class="languages">
+        <div :class="['languages',{'active': logoStatus}]">
           <a class="languageItem">簡</a>
           <a class="languageItem">繁</a>
           <a class="languageItem">EN</a>
-          <a class="menubar-open" @click="openMenu">
+          <a :class="['menubar-open',{'active': logoStatus}]" @click="openMenu">
             <i class="fas fa-bars"></i>
           </a>
         </div>
@@ -41,15 +42,24 @@ export default {
     setup(){
 
         const menubarStatus = ref(false);
-        const openMenu = ()=> menubarStatus.value = !menubarStatus.value;
-        const closeMenu = ()=> menubarStatus.value = !menubarStatus.value;
+        const openMenu = ()=> menubarStatus.value = true;
+        const closeMenu = ()=> menubarStatus.value = false;
+        const logoStatus = ref(false);
 
         onMounted(() => {
-            document.addEventListener('scroll', ()=> menubarStatus.value = false );
+            document.addEventListener('scroll', ()=> {
+              menubarStatus.value = false ;
+              if ( window.scrollY > 700 ){
+                logoStatus.value = true;
+               }
+              else {
+                logoStatus.value = false;
+              }
+            });
         });
 
 
-        return { menubarStatus, openMenu ,closeMenu};
+        return { menubarStatus, openMenu ,closeMenu, logoStatus, };
     }
 };
 </script>

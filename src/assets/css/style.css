@@ -280,10 +280,18 @@ ul,li{
                     url("../pic/Line-Graphic.png")no-repeat center / 97%,
                     url("../pic/banner.jpg") no-repeat center / cover;
     }  
+
     .menubar{
         justify-content: space-between;
         background-color: transparent;
         padding: 48px 50px 0;
+        transition: .3s ease-out;
+    }
+
+    .menubar.active{
+        transition: .3s ease-in;
+        background-color: #fff;
+        padding: 20px 50px;
     }
 
     .logo{
@@ -300,6 +308,11 @@ ul,li{
 
     .menubar-open i{
         color: #fff;
+        transition: .3s ease-out;
+    }
+
+    .menubar-open.active i{
+        color: #000;
     }    
 
     .languageItem{
@@ -311,6 +324,11 @@ ul,li{
         font-size: 1rem;
         color: #fff;
         margin-right: 20px;
+        transition: .3s ease-out;
+    }
+
+    .languages.active a{
+        color: #000;
     }
     
     .languages a:last-child{
