@@ -159,6 +159,14 @@ ul,li{
     margin-bottom: 50px;
 }
 
+.business .content .txt{
+    height: 500px;
+}
+
+.business .txt ul{
+    height: 100px;
+}
+
 .business .txt ul,
 .business .content ul{
     margin-top: 50px;

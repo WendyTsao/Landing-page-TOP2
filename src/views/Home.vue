@@ -23,37 +23,45 @@
         <div class="row">
           <div class="txt col-12 col-lg-4" data-aos="fade-up" data-aos-duration="1000">
               <h2>企业介绍</h2>
-              <ul v-if="tabStatus">
-                  <li>尖沙咀尖沙咀帝国店</li>
-                  <li><i class="fas fa-map-marker-alt"></i>九龙尖沙咀广东道30号新港中心G07铺 </li>
-                  <li><i class="far fa-clock"></i>星期一至星期日: 10:00 - 21:00 </li>
-                  <li><i class="fas fa-phone-alt"></i>2130 7120</li>
-              </ul>
-              <ul v-else>
-                  <li>尖沙咀中心店</li>
-                  <li><i class="fas fa-map-marker-alt"></i>香港九龙尖沙咀地道66 尖沙咀中心西翼 </li>
-                  <li><i class="far fa-clock"></i>星期一至星期日: 10:00 - 21:00 </li>
-                  <li><i class="fas fa-phone-alt"></i>2425 3425</li>
-              </ul>
+              <transition name="fade">
+                <ul v-show="isWholesale && retailDisable">
+                    <li>尖沙咀尖沙咀帝国店</li>
+                    <li><i class="fas fa-map-marker-alt"></i>九龙尖沙咀广东道30号新港中心G07铺 </li>
+                    <li><i class="far fa-clock"></i>星期一至星期日: 10:00 - 21:00 </li>
+                    <li><i class="fas fa-phone-alt"></i>2130 7120</li>
+                </ul>
+              </transition>
+              <transition name="fade">
+                <ul v-show="isRetail && wholesaleDisable">
+                    <li>尖沙咀中心店</li>
+                    <li><i class="fas fa-map-marker-alt"></i>香港九龙尖沙咀地道66 尖沙咀中心西翼 </li>
+                    <li><i class="far fa-clock"></i>星期一至星期日: 10:00 - 21:00 </li>
+                    <li><i class="fas fa-phone-alt"></i>2425 3425</li>
+                </ul>
+              </transition>
           </div>
           <div class="content col-12 col-lg-8">
             <ul class="nav nav-tabs" data-aos="fade-up" data-aos-duration="1000">
-                <li><button @click="clickWholesale" :class="['nav-link',{'active': tabStatus}]">批发</button></li>
-                <li><button @click="clickRetail" :class="['nav-link',{'active': !tabStatus}]">零售</button></li>
+                <li><button @click="changeTab('批發')" :class="['nav-link',{'active': isWholesale}]">批发</button></li>
+                <li><button @click="changeTab('零售')" :class="['nav-link',{'active': isRetail}]">零售</button></li>
             </ul>
             <div class="txt" data-aos="fade-left" data-aos-duration="1000">
-              <div v-if="tabStatus">
-                  <p>
-                      TOP2的顶尖时装买手高瞻远瞩，拥有前瞻性的眼光能准确分析来季时装的潮流趋势，致力为客人提供最优越最新的时装产品。再配合我们卓越的分销渠道，客户遍布亚洲各国，包括香港、澳门、中国、台湾及日本等地。
-                  </p>
-                  <img src="../assets/pic/business01.jpg" />
-              </div>
-              <div v-else>
-                  <p>
-                      亨德爾說過一句富有哲理的話，慎慮無後患。這句話幾乎解讀出了問題的根本。零售改變了我的命運。我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。零售對我來說，已經成為了我生活的一部分。
-                  </p>
-                  <img src="../assets/pic/business02.jpg" />
-              </div>
+              <transition name="fade">
+                <div v-show="isWholesale && retailDisable">
+                    <p>
+                        TOP2的顶尖时装买手高瞻远瞩，拥有前瞻性的眼光能准确分析来季时装的潮流趋势，致力为客人提供最优越最新的时装产品。再配合我们卓越的分销渠道，客户遍布亚洲各国，包括香港、澳门、中国、台湾及日本等地。
+                    </p>
+                    <img src="../assets/pic/business01.jpg" />
+                </div>
+              </transition>
+              <transition name="fade">
+                <div v-show="isRetail && wholesaleDisable">
+                    <p>
+                        亨德爾說過一句富有哲理的話，慎慮無後患。這句話幾乎解讀出了問題的根本。零售改變了我的命運。我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。零售對我來說，已經成為了我生活的一部分。
+                    </p>
+                    <img src="../assets/pic/business02.jpg" />
+                </div>
+              </transition>
             </div>
           </div>
         </div>
@@ -96,7 +104,7 @@
 
 <script>
 // @ is an alias to /src
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import Menubar from '../components/Menubar.vue';
 import Card from '../components/Card.vue';
@@ -137,11 +145,46 @@ export default {
       { text:"合作电邮", email:"enquiry@top-2.hk" }
     ]
 
-    const tabStatus = ref(true);
-    const clickWholesale = ()=> tabStatus.value = true
-    const clickRetail = ()=> tabStatus.value = false;
+    const currentTab = ref('批發');
+    const wholesaleDisable = ref(false);
+    const retailDisable = ref(true);
 
-    return { contents, contactItems, tabStatus, clickWholesale, clickRetail  }
+    const isRetail = computed(()=> currentTab.value === '零售');
+    const isWholesale = computed(()=> currentTab.value === '批發');
+
+    const changeTab = tabName => {
+      currentTab.value = tabName;
+      const time = setTimeout(() => {
+        retailDisable.value = isWholesale.value;
+        wholesaleDisable.value = isRetail.value;
+      }, 1050);
+    }
+
+    return {
+        contents,
+        contactItems,
+        isRetail,
+        isWholesale,
+        retailDisable,
+        wholesaleDisable,
+        changeTab
+    };
   },
 };
 </script>
+<style scoped>
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .fade-enter-to,
+    .fade-leave-from {
+        opacity: 1;
+    }
+</style>
