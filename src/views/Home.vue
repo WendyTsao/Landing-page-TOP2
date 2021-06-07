@@ -4,7 +4,7 @@
   <div class="brand">
     <div class="container col-10 col-lg-8">
       <div class="row">
-        <Title :content="brandContents"></Title>
+        <Title :content="contents.brand"></Title>
       </div>
       <Card></Card>
     </div>
@@ -13,7 +13,7 @@
   <div class="about">
     <div class="container col-10 col-lg-8">
       <div class="row">
-        <Title :content="aboutContents"></Title>
+        <Title :content="contents.about"></Title>
       </div>
     </div>
   </div>
@@ -65,12 +65,12 @@
     <div class="container col-10 col-lg-8">
       <div class="row">
         <Graphic :image="'Iphone.png'">
-          <Title :content="app1Contents">
+          <Title :content="contents.app1">
             <span class="tag">即將推出</span>
           </Title>
         </Graphic>
         <Graphic :image="'Iphone2.png'" data-aos-delay="500">
-          <Title :content="app2Contents"></Title>
+          <Title :content="contents.app1"></Title>
         </Graphic>
       </div>
     </div>
@@ -79,7 +79,7 @@
   <div class="contact">
     <div class="container col-10" data-aos="fade-up" data-aos-delay="200" data-aos-mirror="true">
       <div class="row">
-        <Title :content="contactContents"></Title>
+        <Title :content="contents.contact"></Title>
       </div>
       <div class="row">
         <div class="contact-item">
@@ -109,28 +109,27 @@ export default {
   },
 
   setup(){
-    const brandContents = 
-    { title: "关于我们", 
-      text: "TOP2擁有一隊經驗豐富的頂尖駐歐洲買手團隊直接入口一線奢侈服裝品牌如 GUCCI、DIOR、BURBERRY 等，所有產品均百份百從各個歐洲品牌直接進口香港。我們秉承品牌核心價值，每天為追求時裝潮流的客人提供最新最緊貼歐洲潮流的產品。" 
+    const contents = {
+        brand: {
+            title: "关于我们",
+            text: "TOP2擁有一隊經驗豐富的頂尖駐歐洲買手團隊直接入口一線奢侈服裝品牌如 GUCCI、DIOR、BURBERRY 等，所有產品均百份百從各個歐洲品牌直接進口香港。我們秉承品牌核心價值，每天為追求時裝潮流的客人提供最新最緊貼歐洲潮流的產品。"
+        },
+        about: {
+            title: "核心品牌矩阵",
+            text: "TOP2拥有超过30年经营欧洲时装品牌批发的经验，成为欧洲奢侈品牌的领先市场。  客户遍布亚洲各地，包括香港、澳门、中国、台湾及日本等。"
+        },
+        app1: {
+            title: "APP程式",
+            text: "自家研发B2B奢侈品电商平台让服装人没有难做的服装生意。即将会上线，请敬请期待!"
+        },
+        app2: {
+            title: "微信小程序",
+            text: "透过微信庞大的社交体系，小程序得到快速传播最优越最新的时装产品最到我们的专贵客户，客源更多元化。"
+        },
+        contact: {
+            title: "联络我们"
+        }
     };
-
-    const aboutContents =
-    { title: "核心品牌矩阵", 
-      text: "TOP2拥有超过30年经营欧洲时装品牌批发的经验，成为欧洲奢侈品牌的领先市场。  客户遍布亚洲各地，包括香港、澳门、中国、台湾及日本等。" 
-    };
-
-    const app1Contents =
-    { title: "APP程式", 
-      text: "自家研发B2B奢侈品电商平台让服装人没有难做的服装生意。即将会上线，请敬请期待!" 
-    };
-
-    const app2Contents =
-    { title: "微信小程序 ", 
-      text: "透过微信庞大的社交体系，小程序得到快速传播最优越最新的时装产品最到我们的专贵客户，客源更多元化。" 
-    };
-
-    const contactContents =
-    { title: "联络我们" };
 
     const contactItems = [
       { text:"联络电邮", email:"enquiry@top-2.hk" },
@@ -142,7 +141,7 @@ export default {
     const clickWholesale = ()=> tabStatus.value = true
     const clickRetail = ()=> tabStatus.value = false;
 
-    return { brandContents, aboutContents, app1Contents, app2Contents, contactContents, contactItems, tabStatus, clickWholesale, clickRetail  }
+    return { contents, contactItems, tabStatus, clickWholesale, clickRetail  }
   },
 };
 </script>
