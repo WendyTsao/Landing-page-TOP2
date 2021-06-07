@@ -196,7 +196,7 @@ ul,li{
 
 .business .nav-tabs .nav-link:focus,
 .business .nav-tabs .nav-link:hover {
-    border-color: transparent;
+    border-color: transparent transparent #C9B38F;
 }
 
 .business img{

@@ -38,8 +38,8 @@
           </div>
           <div class="content col-12 col-lg-8">
             <ul class="nav nav-tabs" data-aos="fade-up" data-aos-duration="1000">
-                <li><button @click="clickTab" :class="['nav-link',{'active': tabStatus}]">批发</button></li>
-                <li><button @click="clickTab" :class="['nav-link',{'active': !tabStatus}]">零售</button></li>
+                <li><button @click="clickWholesale" :class="['nav-link',{'active': tabStatus}]">批发</button></li>
+                <li><button @click="clickRetail" :class="['nav-link',{'active': !tabStatus}]">零售</button></li>
             </ul>
             <div class="txt" data-aos="fade-left" data-aos-duration="1000">
               <div v-if="tabStatus">
@@ -139,9 +139,10 @@ export default {
     ]
 
     const tabStatus = ref(true);
-    const clickTab = ()=> tabStatus.value = !tabStatus.value;
+    const clickWholesale = ()=> tabStatus.value = true
+    const clickRetail = ()=> tabStatus.value = false;
 
-    return { brandContents, aboutContents, app1Contents, app2Contents, contactContents, contactItems, tabStatus, clickTab }
+    return { brandContents, aboutContents, app1Contents, app2Contents, contactContents, contactItems, tabStatus, clickWholesale, clickRetail  }
   },
 };
 </script>
